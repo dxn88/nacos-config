@@ -1,6 +1,8 @@
 package com.dxn.nacos.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +19,10 @@ public class ConfigController {
     @Value("${spring.age}")
     Integer age;
 
+
+    @Autowired
+    ConfigurableApplicationContext configurableApplicationContext;
+
     @GetMapping("/config/name")
     public String getConfigName() {
         return name;
@@ -25,5 +31,10 @@ public class ConfigController {
     @GetMapping("/config/age")
     public Integer getConfigAge() {
         return age;
+    }
+
+    @GetMapping("/config/dynamic")
+    public String  getConfigDynamic() {
+        return configurableApplicationContext.getEnvironment().getProperty("spring.name");
     }
 }
