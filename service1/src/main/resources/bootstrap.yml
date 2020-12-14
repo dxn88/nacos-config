@@ -1,0 +1,13 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: service1
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.103.247:8848
+        file-extension: yaml       # dataId 为 application的name 加 扩展file-extension的value
+        namespace: bc6379dd-fcee-4dae-a68a-f8341b19dbc0
+        group: DEFAULT_GROUP
