@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: nacos-provider
+    name: nacos-consumer
   cloud:
     nacos:
       discovery:
@@ -11,4 +11,4 @@ spring:
 logging:
   level:
     root: info
-     org.springframework: info
+    org.springframework: info

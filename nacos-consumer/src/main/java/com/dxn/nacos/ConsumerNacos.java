@@ -16,22 +16,22 @@ package com.dxn.nacos;/*
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * Nacos starter.
  *
  * @author nacos
  */
-@SpringBootApplication(scanBasePackages = "com.dxn.nacos")
-@ServletComponentScan
-@RefreshScope
-@EnableScheduling
-public class Nacos {
+@SpringBootApplication
+//@ServletComponentScan
+//@EnableScheduling
+@EnableDiscoveryClient
+@EnableFeignClients
+public class ConsumerNacos {
     
     public static void main(String[] args) {
-        SpringApplication.run(Nacos.class, args);
+        SpringApplication.run(ConsumerNacos.class, args);
     }
 }
