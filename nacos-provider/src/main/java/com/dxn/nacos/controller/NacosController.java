@@ -22,7 +22,8 @@ public class NacosController {
         String serverAddr = environment
                 .resolvePlaceholders("${server.port:}");
         System.out.println("serverAddr = " + serverAddr);
-
+        String property = environment.getProperty("spring.application.name");
+        System.out.println("property = " + property);
         return "wangjun";
     }
 }
