@@ -17,6 +17,7 @@ package com.dxn.nacos;/*
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -26,6 +27,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication(scanBasePackages = "com.dxn.nacos")
 @ServletComponentScan
+@RefreshScope
 @EnableScheduling
 public class Nacos {
     

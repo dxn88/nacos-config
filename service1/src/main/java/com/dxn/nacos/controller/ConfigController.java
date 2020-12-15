@@ -37,4 +37,9 @@ public class ConfigController {
     public String  getConfigDynamic() {
         return configurableApplicationContext.getEnvironment().getProperty("spring.name");
     }
+
+    @GetMapping("/config/dev")
+    public String  getConfigDev() {
+        return configurableApplicationContext.getEnvironment().getProperty("springdev.name");
+    }
 }
