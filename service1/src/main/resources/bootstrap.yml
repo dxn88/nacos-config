@@ -18,3 +18,4 @@ spring:
 #          group: DEFAULT_GROUP
 #          data-id: bootstrap-dev.yml
           refresh: true
+#        enabled: false
