@@ -13,6 +13,6 @@ public class NacosController {
     @GetMapping("/config/name")
     public String getConfigName() {
         System.out.println("NacosController.getConfigName");
-        return "dxn";
+        return "wangjun";
     }
 }

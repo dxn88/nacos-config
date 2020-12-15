@@ -1,9 +1,9 @@
 server:
-  port: 8085
+  port: ${port:8085}
 
 spring:
   application:
-    name: nacosa-provider
+    name: nacos-provider
   cloud:
     nacos:
       discovery:

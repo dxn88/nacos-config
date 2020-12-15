@@ -1,7 +1,10 @@
 package com.dxn.nacos.controller;
 
+import com.dxn.nacos.NacosProviderClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author dxn
@@ -10,12 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConsumerController {
 
-//    NacosProviderClient nacosProviderClient;
+    @Resource
+    NacosProviderClient nacosProviderClient;
 
     @GetMapping("/config/name")
     public String getConfigName() {
         System.out.println("NacosController.getConfigName");
-//        return nacosProviderClient.getConfigName();
-        return "1";
+        String configName = nacosProviderClient.getConfigName();
+        System.out.println("configName = " + configName);
+        return configName;
     }
 }

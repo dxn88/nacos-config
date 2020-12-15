@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * date 2020/12/15
  */
 
-@FeignClient(value = "nacos-provider")
+@FeignClient(name  = "nacos-provider")
 public interface NacosProviderClient {
     @GetMapping("/config/name")
     String getConfigName();
