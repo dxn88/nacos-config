@@ -21,6 +21,7 @@ public class ConsumerController {
         System.out.println("NacosController.getConfigName");
         String configName = nacosProviderClient.getConfigName();
         System.out.println("configName = " + configName);
+
         return configName;
     }
 }
