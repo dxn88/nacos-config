@@ -1,0 +1,14 @@
+server:
+  port: ${port:8085}
+
+spring:
+  application:
+    name: nacos-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.103.247:8848
+logging:
+  level:
+    root: info
+    org.springframework: info
