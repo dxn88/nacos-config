@@ -20,11 +20,12 @@ public class NacosController {
     public String getConfigName() {
 
         String serverAddr = environment.resolvePlaceholders("${server.port:}");
-
         System.out.println("serverAddr = " + serverAddr);
 
-        String property = environment.getProperty("spring.application.name");
+        String applicationName = environment.resolvePlaceholders("${spring.application.name:}").split("-")[0];
+        System.out.println("applicationName = " + applicationName);
 
+        String property = environment.getProperty("spring.application.name");
         System.out.println("property = " + property);
 
         return "wangjun";

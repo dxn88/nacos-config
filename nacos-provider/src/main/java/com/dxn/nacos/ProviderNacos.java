@@ -27,7 +27,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 //@ServletComponentScan
 //@EnableScheduling
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @EnableFeignClients
 public class ProviderNacos {
     
