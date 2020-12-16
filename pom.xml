@@ -13,8 +13,7 @@
         <module>nacos-consumer</module>
         <module>nacos-provider</module>
         <module>nacos-provider-client</module>
-        <module>eureka-server</module>
-        <module>eureka-server2</module>
+        <module>nacos-register</module>
     </modules>
 
     <packaging>pom</packaging>
