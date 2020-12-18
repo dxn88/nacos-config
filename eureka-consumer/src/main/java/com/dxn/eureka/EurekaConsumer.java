@@ -1,8 +1,9 @@
 package com.dxn.eureka;
 
+import com.dxn.eureka.config.AppConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
 /**
  * Nacos starter.
@@ -13,7 +14,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 //@ServletComponentScan
 //@EnableScheduling
 //@EnableDiscoveryClient
-@EnableFeignClients
+//@EnableFeignClients
+@RibbonClient(value = "eureka-provider", configuration = AppConfig.class)
 public class EurekaConsumer {
 
     public static void main(String[] args) {

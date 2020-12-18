@@ -1,12 +1,15 @@
 package com.dxn.eureka.controller;
 
 import com.dxn.eureka.EurekaProviderClient;
+import com.dxn.eureka.pojo.PersonVO;
+import com.netflix.appinfo.MyDataCenterInfo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Field;
 
 /**
  * @author dxn
@@ -30,6 +33,12 @@ public class ConsumerController {
         String configName = providerClient.getConfigName();
         System.out.println("configName = " + configName);
         return forEntity.getBody();
+    }
 
+    public static void main(String[] args) {
+        Field[] declaredFields = MyDataCenterInfo.class.getDeclaredFields();
+        for (Field declaredField : declaredFields) {
+            System.out.println("declaredField = " + declaredField.getName());
+        }
     }
 }
