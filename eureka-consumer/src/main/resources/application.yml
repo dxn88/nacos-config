@@ -1,9 +1,9 @@
 server:
-  port: ${port:8092}
+  port: ${port:8093}
 
 spring:
   application:
-    name: eureka-provider
+    name: eureka-consumer
 
 eureka:
   client:

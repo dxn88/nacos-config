@@ -18,6 +18,7 @@
         <module>eureka-provider</module>
         <module>eureka-server</module>
         <module>eureka-server2</module>
+        <module>eureka-client</module>
     </modules>
 
     <packaging>pom</packaging>
