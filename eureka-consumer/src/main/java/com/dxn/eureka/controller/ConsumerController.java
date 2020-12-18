@@ -30,8 +30,8 @@ public class ConsumerController {
 
         ResponseEntity<String> forEntity = restTemplate.getForEntity("http://eureka-provider/config/name"
                 , String.class);
-        String configName = providerClient.getConfigName();
-        System.out.println("configName = " + configName);
+//        String configName = providerClient.getConfigName();
+//        System.out.println("configName = " + configName);
         return forEntity.getBody();
     }
 
