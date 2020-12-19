@@ -14,10 +14,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 //@EnableScheduling
 //@EnableDiscoveryClient
 @EnableFeignClients
-//@RibbonClient(value = "eureka-provider", configuration = AppConfig.class)
-public class EurekaConsumer {
+public class EurekaConsuer1 {
 
     public static void main(String[] args) {
-        SpringApplication.run(EurekaConsumer.class, args);
+        SpringApplication.run(EurekaConsuer1.class, args);
     }
 }

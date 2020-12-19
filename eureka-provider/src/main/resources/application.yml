@@ -8,7 +8,7 @@ spring:
 eureka:
   client:
     serviceUrl: #注册中心的注册地址
-      defaultZone: http://127.0.0.1:8091/eureka/
+      defaultZone: http://localhost:8091/eureka/
 logging:
   level:
     root: info

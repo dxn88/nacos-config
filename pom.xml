@@ -14,11 +14,11 @@
         <module>nacos-provider</module>
         <module>nacos-provider-client</module>
         <module>nacos-register</module>
-        <module>eureka-consumer</module>
         <module>eureka-provider</module>
         <module>eureka-server</module>
         <module>eureka-server2</module>
         <module>eureka-client</module>
+        <module>eureka-consumer1</module>
     </modules>
 
     <packaging>pom</packaging>
