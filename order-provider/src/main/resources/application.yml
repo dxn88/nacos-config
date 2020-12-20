@@ -1,9 +1,9 @@
 server:
-  port: ${port:8093}
+  port: ${port:8095}
 
 spring:
   application:
-    name: eureka-consumer1
+    name: order-provider
 
 eureka:
   client:
@@ -13,8 +13,3 @@ logging:
   level:
     root: info
     org.springframework: info
-feign:
-  client:
-    config:
-      order-eureka:
-        logger-level: full

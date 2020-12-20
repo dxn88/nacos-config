@@ -19,6 +19,7 @@
         <module>eureka-server2</module>
         <module>eureka-client</module>
         <module>eureka-consumer1</module>
+        <module>order-provider</module>
     </modules>
 
     <packaging>pom</packaging>
