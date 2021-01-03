@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author dxn
  * date 2020/12/15
  * {@code OrderProviderClient}
- * {@link OrderProviderClient}
- * {@value }
+ * {@link ServiceProviderClient}
+ * {@value 5}
  * {}
  */
-@FeignClient(name = "order-provider", fallback = OrderProviderClientCallback.class, url = "http://localhost:8092")
-public interface OrderProviderClient {
+@FeignClient(name = "service-provider", url = "http://localhost:8092")
+public interface ServiceProviderClient {
     @GetMapping("/config/name")
     String getConfigName();
 

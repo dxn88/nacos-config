@@ -18,3 +18,9 @@ feign:
     config:
       order-eureka:
         logger-level: full
+  hystrix:
+    enabled: true
+
+
+path:
+  url: eureka/client
