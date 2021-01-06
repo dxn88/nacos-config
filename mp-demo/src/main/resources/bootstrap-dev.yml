@@ -1,0 +1,51 @@
+server:
+  port: 8003
+spring:
+  # redis相关配置
+  redis:
+    database: 0
+    host: 192.168.100.212
+    port: 16379
+    password: IQH987op
+    connectionTimeout: 30000
+    prefix: ark_promotion_
+    jedis:
+      pool:
+        min-idle: 0
+        max-active: 8
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.100.212:13306/ark_promotion_dev?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: ark-dev
+    password: ark2rfv#TGB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    # 删除前
+    logic-not-delete-value: 0
+    # 删除后
+    logic-delete-value: 1
+    # 全局id设置 0为自增
+    id-type: 0
+#日志
+#日志
+logging:
+  config: classpath:log4j2/log4j2-dev.xml
+
+swagger:
+  enable: true
+  basePackage: com.iqihang.ark.promotion
+  title: 促销接口文档
+  description: 促销接口文档
+  version: v1.0

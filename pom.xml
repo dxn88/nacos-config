@@ -14,12 +14,11 @@
         <module>nacos-provider</module>
         <module>nacos-provider-client</module>
         <module>nacos-register</module>
+        <module>eureka-consumer1</module>
         <module>eureka-provider</module>
         <module>eureka-server</module>
         <module>eureka-server2</module>
         <module>eureka-client</module>
-        <module>eureka-consumer1</module>
-        <module>order-provider</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -48,26 +47,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.18.16</version>
-            </dependency>
         </dependencies>
 
     </dependencyManagement>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>
