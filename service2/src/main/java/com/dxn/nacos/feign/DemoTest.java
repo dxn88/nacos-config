@@ -30,7 +30,7 @@ public class DemoTest {
     @Test
     public void textUir() {
         UriTemplate template = UriTemplate.create("http://example.com/{foo}", StandardCharsets.UTF_8);
-        Map<String, Object> params = new HashMap<>();
+        Map<String, Object> params = new HashMap();
         params.put("foo", "bar");
         String result = template.expand(params);
         System.out.println(result);
