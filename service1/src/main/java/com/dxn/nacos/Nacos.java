@@ -27,7 +27,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication(scanBasePackages = "com.dxn.nacos")
 @ServletComponentScan
-@RefreshScope
+//@RefreshScope
 @EnableScheduling
 public class Nacos {
     
