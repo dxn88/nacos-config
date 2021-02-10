@@ -11,4 +11,5 @@ spring:
 logging:
   level:
     root: info
-    org.springframework: info
+    org.springframework.web: trace
+#    org.springframework: info
