@@ -24,9 +24,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  *
  * @author nacos
  */
-@SpringBootApplication(scanBasePackages = "com.dxn.nacos")
-@ServletComponentScan
-@EnableScheduling
+@SpringBootApplication
+//@ServletComponentScan
+//@EnableScheduling
 public class Nacos {
     
     public static void main(String[] args) {

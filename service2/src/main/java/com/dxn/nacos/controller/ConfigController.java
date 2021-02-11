@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConfigController {
 
-    @Value("${spring.name}")
+//    @Value("${spring.name}")
     private String name;
 
-    @Value("${spring.age}")
+//    @Value("${spring.age}")
     Integer age;
 
     @GetMapping("/config/name")
