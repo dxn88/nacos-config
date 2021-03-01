@@ -27,10 +27,10 @@ public class MyNettyClient {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
-                            pipeline.addLast(null);
+                            pipeline.addLast(new ClientHandler());
                         }
                     })
-                    .connect(new InetSocketAddress("localhost", 6666)).sync();
+                    .connect(new InetSocketAddress("127.0.0.1", 6666)).sync();
 
             ChannelFuture sync = connect.channel().closeFuture().sync();
         } finally {
