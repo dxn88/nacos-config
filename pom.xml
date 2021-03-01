@@ -20,6 +20,7 @@
         <module>eureka-server</module>
         <module>eureka-server2</module>
         <module>eureka-client</module>
+        <module>mynett</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -27,7 +28,7 @@
     <properties>
         <config-version>${revision}${sha1}${changelist}</config-version>
         <revision>1.0</revision>
-        <changelist>-SNAPSHOT7777777777777777777777777777777777</changelist>
+        <changelist>-SNAPSHOT8888888888888888888888</changelist>
         <sha1/>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -36,6 +37,11 @@
     <dependencyManagement>
 
         <dependencies>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.20.Final</version>
+            </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
