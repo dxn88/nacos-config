@@ -8,6 +8,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.util.CharsetUtil;
+import io.netty.util.concurrent.Future;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -16,7 +17,7 @@ import java.net.SocketAddress;
  * @author Dai.xn
  * @since 2021/3/1
  */
-public class MyNetty {
+public class MyNettyServer {
 
     public static void main(String[] args) throws InterruptedException {
         NioEventLoopGroup bossGroup = new NioEventLoopGroup(1);
@@ -24,30 +25,38 @@ public class MyNetty {
 
         ServerBootstrap bootstrap = new ServerBootstrap();
 
-        bootstrap.group(bossGroup, workerGroup)
-                .channel(NioServerSocketChannel.class)
-                /**
-                 * 半连接
-                 */
-                .option(ChannelOption.SO_BACKLOG, 65535)
-                .childOption(ChannelOption.SO_KEEPALIVE, true)
-                .childHandler(new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    protected void initChannel(SocketChannel ch) throws Exception {
-                        ChannelPipeline pipeline = ch.pipeline();
-                        pipeline.addLast(new NettyServerHandler());
-                    }
-                });
-        System.out.println("开始启动服务。。。");
+        try {
+            bootstrap.group(bossGroup, workerGroup)
+                    .channel(NioServerSocketChannel.class)
+                    /**
+                     * 半连接
+                     */
+                    .option(ChannelOption.SO_BACKLOG, 65535)
+                    .childOption(ChannelOption.SO_KEEPALIVE, true)
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
+                        @Override
+                        protected void initChannel(SocketChannel ch) throws Exception {
+                            ChannelPipeline pipeline = ch.pipeline();
+                            pipeline.addLast(new NettyServerHandler());
+                        }
+                    });
+            System.out.println("开始启动服务。。。");
 
-        ChannelFuture bindFuture = bootstrap.bind(new InetSocketAddress(6666)).sync();
+            ChannelFuture bindFuture = bootstrap.bind(new InetSocketAddress(6666)).sync();
 
-        bindFuture.channel().closeFuture().addListener(new ChannelFutureListener() {
-            @Override
-            public void operationComplete(ChannelFuture future) throws Exception {
-                System.out.println("closeFuture");
+            bindFuture.channel().closeFuture().addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture future) throws Exception {
+                    System.out.println("clos、eFuture");
+                }
+            }).sync();
+        } finally {
+            Future<?> future = bossGroup.shutdownGracefully();
+            Future<?> future1 = workerGroup.shutdownGracefully();
+            if (future.getNow() == null) {
+                bossGroup.shutdownNow();
             }
-        }).sync();
+        }
 
     }
 
