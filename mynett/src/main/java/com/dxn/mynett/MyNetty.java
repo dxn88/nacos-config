@@ -1,12 +1,16 @@
 package com.dxn.mynett;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.util.CharsetUtil;
 
 import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 
 /**
  * @author Dai.xn
@@ -80,12 +84,19 @@ public class MyNetty {
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
             System.out.println("NettyServerHandler.channelRead");
+            ByteBuf byteBuf = (ByteBuf) msg;
+            System.out.println("byteBuf.toString(CharsetUtil.UTF_8) = " + byteBuf.toString(CharsetUtil.UTF_8));
+            SocketAddress socketAddress = ctx.channel().remoteAddress();
+            System.out.println("socketAddress = " + socketAddress);
             super.channelRead(ctx, msg);
         }
 
         @Override
         public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
             System.out.println("NettyServerHandler.channelReadComplete");
+            String msg = "收到消息:time = " + System.currentTimeMillis();
+            ByteBuf byteBuf = Unpooled.copiedBuffer(msg, CharsetUtil.UTF_8);
+            ctx.writeAndFlush(byteBuf);
             super.channelReadComplete(ctx);
         }
 
