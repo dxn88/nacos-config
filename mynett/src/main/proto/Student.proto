@@ -1,0 +1,15 @@
+
+    syntax = "proto3";
+
+// 引入外部的proto对象
+//import "google/protobuf/any.proto";
+
+// 生成类的包名
+option java_package = "com.dxn.mynett.pojo";
+//生成的数据访问类的类名
+option java_outer_classname = "StudentWrapper";
+
+message Student{
+  int32 age = 1;
+  string name = 2;
+}

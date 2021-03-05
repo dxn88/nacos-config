@@ -28,7 +28,7 @@
     <properties>
         <config-version>${revision}${sha1}${changelist}</config-version>
         <revision>1.0</revision>
-        <changelist>-SNAPSHOT8888888888888888888888</changelist>
+        <changelist>-SNAPSHOT</changelist>
         <sha1/>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
