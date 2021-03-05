@@ -14,10 +14,12 @@ package com.dxn.nacos;/*
  * limitations under the License.
  */
 
+import com.dxn.nacos.bean.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * Nacos starter.
@@ -32,6 +34,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class ProviderNacos {
     
     public static void main(String[] args) {
-        SpringApplication.run(ProviderNacos.class, args);
+        final ConfigurableApplicationContext run = SpringApplication.run(ProviderNacos.class, args);
+        final User bean = run.getBean("scopedTarget.user",User.class);
+        System.out.println("bean = " + bean);
+        final User bean1 = run.getBean("user",User.class);
+        System.out.println("bean1 = " + bean1);
+
     }
 }

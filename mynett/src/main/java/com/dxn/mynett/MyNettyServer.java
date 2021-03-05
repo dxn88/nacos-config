@@ -16,6 +16,7 @@ import java.net.SocketAddress;
 /**
  * @author Dai.xn
  * @since 2021/3/1
+ *
  */
 public class MyNettyServer {
 
@@ -90,6 +91,12 @@ public class MyNettyServer {
             super.channelInactive(ctx);
         }
 
+        /**
+         *  注释看不清楚啊
+         * @param ctx
+         * @param msg
+         * @throws Exception
+         */
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
             System.out.println("NettyServerHandler.channelRead");
