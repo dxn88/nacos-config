@@ -21,7 +21,7 @@
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>3.3.0</version>
+            <version>3.15.1</version>
         </dependency>
 
         <dependency>
@@ -65,8 +65,9 @@
                     <pluginId>grpc-java</pluginId>
                     <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}
                     </pluginArtifact>
+<!--                    <outputDirectory>${project.basedir}\src\main\java\com\dxn\mynett\pojo</outputDirectory>-->
                     <outputDirectory>${project.basedir}\src\main\java\</outputDirectory>
-
+                    <clearOutputDirectory>false</clearOutputDirectory>
                 </configuration>
                 <executions>
                     <execution>

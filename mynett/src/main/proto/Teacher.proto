@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+// 生成类的包名
+option java_package = "com.dxn.mynett.pojo";
+//生成的数据访问类的类名
+option java_outer_classname = "TeacherSerialize";
+
+
+message Teacher {
+    int32 age = 1;
+}
